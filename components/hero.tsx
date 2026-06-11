@@ -14,25 +14,22 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative isolate overflow-hidden bg-ink text-ink-foreground"
+      className="relative isolate flex min-h-[90vh] flex-col overflow-hidden bg-ink text-ink-foreground"
     >
-      {/* Тёмный фон */}
-      <div className="absolute inset-0 -z-20 bg-ink" />
-
-      {/* Фоновое изображение — занимает только правую часть, как на макете */}
-      <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[49%]">
+      {/* Фоновое изображение — full-bleed, как на макете */}
+      <div className="absolute inset-0 -z-10">
         <img
           src="/images/owner.jpg"
           alt="Специалист PLN Company за рабочим столом"
-          className="h-full w-full object-cover object-[center_18%]"
+          className="h-full w-full object-cover object-[80%_22%]"
         />
-        {/* Горизонтальный градиент: левый край фото растворяется в тёмном фоне */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/55 to-transparent" />
-        {/* Лёгкое затемнение всего фото для читаемости */}
-        <div className="absolute inset-0 bg-ink/15" />
+        {/* Горизонтальный градиент: тёмный слева → прозрачный справа */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/20" />
+        {/* Доп. затемнение снизу для блока преимуществ */}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pb-12 pt-16 lg:px-8 lg:pb-20 lg:pt-40">
+      <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pb-12 pt-28 lg:px-8 lg:pb-16 lg:pt-36">
         <div className="max-w-2xl">
           <h1 className="text-balance font-serif text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             {hero.titleLines.map((line, i) => (
@@ -78,7 +75,7 @@ export function Hero() {
         </div>
 
         {/* Преимущества */}
-        <div className="mt-16 grid max-w-4xl grid-cols-1 gap-6 border-t border-ink-foreground/10 pt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid max-w-4xl grid-cols-1 gap-6 border-t border-ink-foreground/10 pt-10 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((f) => {
             const Icon = featureIcons[f.icon as keyof typeof featureIcons]
             return (
