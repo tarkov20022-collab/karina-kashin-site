@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { ArrowUpRight, Clock, Shield, ShieldCheck, Target, User, Phone } from "lucide-react"
 import { company, hero, features, nav } from "@/lib/content"
 
@@ -39,16 +38,6 @@ export function HeroSection() {
       <header className="relative z-10 w-full">
         {/* Mobile */}
         <div className="flex flex-col items-center gap-4 px-6 py-5 lg:hidden">
-          <Link href="#hero" aria-label={company.name}>
-            <Image
-              src="/images/pln-logo.png"
-              alt={company.name}
-              width={220}
-              height={44}
-              priority
-              className="h-auto w-[180px]"
-            />
-          </Link>
           <Link
             href={company.whatsapp}
             target="_blank"
@@ -62,18 +51,6 @@ export function HeroSection() {
 
         {/* Desktop */}
         <div className="mx-auto hidden max-w-[1440px] items-center justify-between px-10 pt-3 pb-1 lg:flex">
-          {/* Logo — larger, 2.5x original size */}
-          <Link href="#hero" aria-label={company.name} className="shrink-0">
-            <Image
-              src="/images/pln-logo.png"
-              alt={company.name}
-              width={550}
-              height={110}
-              priority
-              className="h-auto w-[500px]"
-            />
-          </Link>
-
           {/* Nav */}
           <nav className="flex items-center gap-7">
             {nav.map((item) => (
