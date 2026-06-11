@@ -79,8 +79,8 @@ export function About() {
               alt="Рабочее место бухгалтера PLN Company"
               className="h-full min-h-80 w-full object-cover"
             />
-            <div className="absolute bottom-5 left-5 max-w-xs rounded-2xl bg-ink/90 px-6 py-5 backdrop-blur-sm">
-              <p className="whitespace-pre-line font-serif text-lg font-semibold leading-snug text-gold">
+            <div className="absolute bottom-6 left-6 max-w-sm rounded-2xl bg-ink/95 px-7 py-6 backdrop-blur-sm">
+              <p className="whitespace-pre-line font-serif text-xl font-semibold leading-relaxed text-gold">
                 {about.imageCaption}
               </p>
             </div>
