@@ -27,11 +27,11 @@ export function HeroSection() {
           className="h-full w-full object-cover object-[20%_22%]"
         />
         {/* Warm dark tint */}
-        <div className="absolute inset-0" style={{ background: "rgba(28,18,6,0.35)" }} />
+        <div className="absolute inset-0" style={{ background: "rgba(28,18,6,0.2)" }} />
         {/* Fade left edge into solid dark */}
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, #1a1206 0%, rgba(26,18,6,0.6) 25%, rgba(26,18,6,0) 50%)" }}
+          style={{ background: "linear-gradient(to right, #1a1206 0%, rgba(26,18,6,0.5) 40%, rgba(26,18,6,0) 70%)" }}
         />
       </div>
 
