@@ -113,7 +113,7 @@ export function About() {
               {about.forTitle}
             </h3>
             <span className="mt-3 block h-0.5 w-12 bg-gold" />
-            <div className="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-3">
+            <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {about.forItems.map((item) => {
                 const Icon = forIcons[item.icon as keyof typeof forIcons]
                 return (
