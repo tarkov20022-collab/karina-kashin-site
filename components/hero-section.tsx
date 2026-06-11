@@ -27,11 +27,16 @@ export function HeroSection() {
           className="h-full w-full object-cover object-[20%_22%]"
         />
         {/* Warm dark tint */}
-        <div className="absolute inset-0" style={{ background: "rgba(28,18,6,0.015)" }} />
+        <div className="absolute inset-0" style={{ background: "rgba(28,18,6,0.015) lg:rgba(28,18,6,0.015)" }} />
         {/* Fade left edge into solid dark — visible on all devices for text readability */}
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(to right, #1a1206 0%, rgba(26,18,6,0.07) 28%, rgba(26,18,6,0.02) 39%)" }}
+        />
+        {/* Mobile overlay — stronger on mobile for text readability */}
+        <div
+          className="absolute inset-0 lg:hidden"
+          style={{ background: "linear-gradient(to right, #1a1206 0%, rgba(26,18,6,0.52) 50%, rgba(26,18,6,0.25) 100%)" }}
         />
         {/* Bottom fade overlay — only bottom 35% of image */}
         <div
