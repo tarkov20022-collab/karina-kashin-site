@@ -16,15 +16,20 @@ export function Hero() {
       id="hero"
       className="relative isolate overflow-hidden bg-ink text-ink-foreground"
     >
-      {/* Фоновое изображение — специалист PLN Company */}
-      <div className="absolute inset-0 -z-10">
+      {/* Тёмный фон */}
+      <div className="absolute inset-0 -z-20 bg-ink" />
+
+      {/* Фоновое изображение — занимает только правую часть, как на макете */}
+      <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[58%]">
         <img
           src="/images/owner.jpg"
           alt="Специалист PLN Company за рабочим столом"
-          className="h-full w-full object-cover object-[70%_30%]"
+          className="h-full w-full object-cover object-[center_18%]"
         />
-        {/* Градиент для читаемости текста слева */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/30" />
+        {/* Горизонтальный градиент: левый край фото растворяется в тёмном фоне */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/55 to-transparent" />
+        {/* Лёгкое затемнение всего фото для читаемости */}
+        <div className="absolute inset-0 bg-ink/15" />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 pb-12 pt-16 lg:px-8 lg:pb-20 lg:pt-40">
