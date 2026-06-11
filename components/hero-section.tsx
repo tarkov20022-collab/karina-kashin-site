@@ -14,7 +14,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-svh flex-col overflow-hidden bg-[#1a1206]"
+      className="relative flex min-h-[calc(100svh-60px)] flex-col overflow-hidden bg-[#1a1206]"
     >
       {/* ── Background ── */}
       {/* Solid dark base */}
@@ -101,9 +101,9 @@ export function HeroSection() {
       </header>
 
       {/* ── Hero content ── */}
-      <div className="relative z-10 flex flex-1 flex-col justify-between">
+      <div className="relative z-10 flex flex-1 flex-col justify-center">
         {/* Main text block */}
-        <div className="mx-auto w-full max-w-[1440px] px-6 pt-3 lg:px-10 lg:pt-4">
+        <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-10">
           <div className="max-w-[560px]">
             {/* Headline */}
             <h1 className="font-serif text-[clamp(3rem,6vw,5rem)] font-bold leading-[1.05] tracking-tight text-white">
@@ -154,8 +154,8 @@ export function HeroSection() {
         </div>
 
         {/* ── Four feature blocks — bottom strip ── */}
-        <div className="mx-auto w-full max-w-[1440px] px-6 pb-8 pt-8 lg:px-10 lg:pb-10">
-          <div className="border-t border-white/15 pt-8">
+        <div className="mx-auto w-full max-w-[1440px] px-6 pb-8 pt-4 lg:px-10 lg:pb-10">
+          <div className="border-t border-white/15 pt-5">
             <div className="grid grid-cols-2 gap-x-8 gap-y-6 lg:grid-cols-4">
               {features.map((f) => {
                 const Icon = featureIcons[f.icon as keyof typeof featureIcons]
