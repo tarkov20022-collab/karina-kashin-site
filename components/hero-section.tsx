@@ -61,7 +61,7 @@ export function HeroSection() {
         </div>
 
         {/* Desktop */}
-        <div className="mx-auto hidden max-w-[1440px] items-center justify-between px-10 pt-5 pb-2 lg:flex">
+        <div className="mx-auto hidden max-w-[1440px] items-center justify-between px-10 pt-12 pb-3 lg:flex">
           {/* Logo — larger, 2.5x original size */}
           <Link href="#hero" aria-label={company.name} className="shrink-0">
             <Image
@@ -103,7 +103,7 @@ export function HeroSection() {
       {/* ── Hero content ── */}
       <div className="relative z-10 flex flex-1 flex-col justify-between">
         {/* Main text block */}
-        <div className="mx-auto w-full max-w-[1440px] px-6 pt-6 lg:px-10 lg:pt-8">
+        <div className="mx-auto w-full max-w-[1440px] px-6 pt-10 lg:px-10 lg:pt-14">
           <div className="max-w-[560px]">
             {/* Headline */}
             <h1 className="font-serif text-[clamp(3rem,6vw,5rem)] font-bold leading-[1.05] tracking-tight text-white">
