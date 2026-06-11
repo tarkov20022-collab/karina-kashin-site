@@ -11,7 +11,7 @@ const statIcons = {
 export function Stats() {
   return (
     <section
-      id="about"
+      id="stats"
       className="relative isolate overflow-hidden bg-ink py-16 text-ink-foreground lg:py-20"
     >
       <div className="absolute inset-0 -z-10">

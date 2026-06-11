@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowUpRight, Clock, Shield, Target, User } from "lucide-react"
+import { ArrowUpRight, Clock, Shield, ShieldCheck, Target, User } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import { hero, features } from "@/lib/content"
 
@@ -16,17 +16,19 @@ export function Hero() {
       id="hero"
       className="relative isolate overflow-hidden bg-ink text-ink-foreground"
     >
-      {/* Фоновое изображение */}
+      {/* Фоновое изображение — команда PLN Company */}
       <div className="absolute inset-0 -z-10">
         <img
-          src="/images/hero-desk.png"
-          alt="Рабочее место бухгалтера: ноутбук, ежедневник и калькулятор"
-          className="h-full w-full object-cover object-right"
+          src="/images/team.jpg"
+          alt="Команда PLN Company за работой"
+          className="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/95 to-ink/40" />
+        {/* Затемнение и градиент для читаемости текста */}
+        <div className="absolute inset-0 bg-ink/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/40" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pb-12 pt-32 lg:px-8 lg:pb-20 lg:pt-40">
+      <div className="mx-auto max-w-7xl px-6 pb-12 pt-16 lg:px-8 lg:pb-20 lg:pt-40">
         <div className="max-w-2xl">
           <h1 className="text-balance font-serif text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             {hero.titleLines.map((line, i) => (
@@ -64,6 +66,11 @@ export function Hero() {
               </span>
             </Link>
           </div>
+
+          <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold/30 px-4 py-1.5 text-xs font-medium text-gold">
+            <ShieldCheck className="size-3.5" />
+            {hero.contractNote}
+          </p>
         </div>
 
         {/* Преимущества */}
