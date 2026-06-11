@@ -75,8 +75,8 @@ export function About() {
           {/* Фото с подписью */}
           <div className="relative overflow-hidden rounded-3xl">
             <img
-              src="/images/about-professional.png"
-              alt="Специалист PLN Company за работой"
+              src="/images/about-desk.jpg"
+              alt="Рабочее место бухгалтера PLN Company"
               className="h-full min-h-80 w-full object-cover"
             />
             <div className="absolute bottom-5 left-5 max-w-xs rounded-2xl bg-ink/90 px-6 py-5 backdrop-blur-sm">

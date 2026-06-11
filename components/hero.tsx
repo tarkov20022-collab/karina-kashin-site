@@ -20,7 +20,7 @@ export function Hero() {
       <div className="absolute inset-0 -z-20 bg-ink" />
 
       {/* Фоновое изображение — занимает только правую часть, как на макете */}
-      <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[58%]">
+      <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[49%]">
         <img
           src="/images/owner.jpg"
           alt="Специалист PLN Company за рабочим столом"
