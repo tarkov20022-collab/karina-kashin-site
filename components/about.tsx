@@ -133,11 +133,11 @@ export function About() {
         </div>
 
         {/* Нижние заметки */}
-        <div className="mt-10 grid grid-cols-1 gap-8 border-t border-border pt-10 md:grid-cols-2 md:gap-12">
+        <div className="mt-10 grid grid-cols-1 gap-8 border-t border-border pt-10 md:grid-cols-2 md:gap-12 md:divide-x md:divide-gold/40">
           {about.notes.map((note) => {
             const Icon = noteIcons[note.icon as keyof typeof noteIcons]
             return (
-              <div key={note.text} className="flex items-start gap-4">
+              <div key={note.text} className="flex items-start gap-4 md:px-6 first:md:pl-0 last:md:pr-0">
                 <Icon className="size-8 shrink-0 text-gold/70" />
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {note.text}
