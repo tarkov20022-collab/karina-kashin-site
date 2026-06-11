@@ -61,7 +61,7 @@ export function SiteHeader() {
           rel="noopener noreferrer"
           className={buttonVariants({
             size: "lg",
-            className: "rounded-full bg-gold px-5 text-gold-foreground hover:bg-gold/90",
+            className: "rounded-full bg-gold px-5 text-gold-foreground hover:bg-gold/90 lg:translate-x-3",
           })}
         >
           <Phone className="size-4" />

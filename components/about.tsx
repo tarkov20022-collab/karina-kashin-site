@@ -1,43 +1,105 @@
-import { Check } from "lucide-react"
+import {
+  Briefcase,
+  Check,
+  Clock,
+  ConciergeBell,
+  Factory,
+  Globe,
+  Handshake,
+  Shield,
+  ShieldCheck,
+  ShoppingBag,
+  Stethoscope,
+  TrendingUp,
+} from "lucide-react"
 import { about } from "@/lib/content"
+
+const featureIcons = {
+  shield: Shield,
+  clock: Clock,
+  "trending-up": TrendingUp,
+} as const
+
+const forIcons = {
+  stethoscope: Stethoscope,
+  "shopping-bag": ShoppingBag,
+  "concierge-bell": ConciergeBell,
+  globe: Globe,
+  factory: Factory,
+  briefcase: Briefcase,
+} as const
+
+const noteIcons = {
+  "shield-check": ShieldCheck,
+  handshake: Handshake,
+} as const
 
 export function About() {
   return (
     <section id="about" className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Заголовок */}
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold tracking-[0.2em] text-gold">
-            {about.eyebrow}
-          </p>
-          <h2 className="mt-3 text-balance font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {about.title}
-          </h2>
-          <p className="mt-5 text-pretty text-lg font-medium text-foreground/80">
-            {about.lead}
-          </p>
-          <div className="mt-6 space-y-4">
-            {about.paragraphs.map((p) => (
-              <p key={p} className="text-pretty leading-relaxed text-muted-foreground">
-                {p}
+        {/* Верхний блок: текст слева, фото справа */}
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.25em] text-gold">
+              {about.eyebrow}
+            </p>
+            <h2 className="mt-4 text-balance font-serif text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
+              {about.title}
+            </h2>
+            <p className="mt-5 whitespace-pre-line text-pretty leading-relaxed text-muted-foreground">
+              {about.lead}
+            </p>
+
+            {/* Три преимущества */}
+            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 border-t border-border pt-10 sm:grid-cols-3">
+              {about.features.map((f) => {
+                const Icon = featureIcons[f.icon as keyof typeof featureIcons]
+                return (
+                  <div key={f.title}>
+                    <span className="flex size-10 items-center justify-center rounded-full border border-gold/40 text-gold">
+                      <Icon className="size-5" />
+                    </span>
+                    <p className="mt-4 font-serif text-base font-bold text-foreground">
+                      {f.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {f.text}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Фото с подписью */}
+          <div className="relative overflow-hidden rounded-3xl">
+            <img
+              src="/images/about-professional.png"
+              alt="Специалист PLN Company за работой"
+              className="h-full min-h-80 w-full object-cover"
+            />
+            <div className="absolute bottom-5 left-5 max-w-xs rounded-2xl bg-ink/90 px-6 py-5 backdrop-blur-sm">
+              <p className="whitespace-pre-line font-serif text-lg font-semibold leading-snug text-gold">
+                {about.imageCaption}
               </p>
-            ))}
+            </div>
           </div>
         </div>
 
         {/* Что берем на себя + Для кого */}
-        <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-            <h3 className="font-serif text-2xl font-bold text-foreground">
-              {about.doTitle}
-            </h3>
-            <ul className="mt-6 space-y-3">
+        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Темная карточка */}
+          <div className="rounded-3xl bg-ink p-8 text-ink-foreground lg:p-10">
+            <h3 className="font-serif text-2xl font-bold">{about.doTitle}</h3>
+            <span className="mt-3 block h-0.5 w-12 bg-gold" />
+            <ul className="mt-7 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
               {about.doItems.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold">
-                    <Check className="size-3.5" />
+                  <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold">
+                    <Check className="size-3" />
                   </span>
-                  <span className="text-sm leading-relaxed text-foreground/85">
+                  <span className="text-sm leading-relaxed text-ink-foreground/85">
                     {item}
                   </span>
                 </li>
@@ -45,41 +107,45 @@ export function About() {
             </ul>
           </div>
 
-          <div className="flex flex-col gap-8">
-            <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-              <h3 className="font-serif text-2xl font-bold text-foreground">
-                {about.forTitle}
-              </h3>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {about.forItems.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-border bg-secondary px-4 py-1.5 text-sm text-foreground/80"
+          {/* Светлая карточка */}
+          <div className="rounded-3xl border border-border bg-card p-8 lg:p-10">
+            <h3 className="font-serif text-2xl font-bold text-foreground">
+              {about.forTitle}
+            </h3>
+            <span className="mt-3 block h-0.5 w-12 bg-gold" />
+            <div className="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-3">
+              {about.forItems.map((item) => {
+                const Icon = forIcons[item.icon as keyof typeof forIcons]
+                return (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-3 rounded-2xl border border-border bg-secondary px-4 py-4"
                   >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-gold/30 bg-ink p-8 text-ink-foreground shadow-sm">
-              <h3 className="font-serif text-2xl font-bold text-gold">
-                {about.trustTitle}
-              </h3>
-              <div className="mt-5 space-y-4">
-                {about.trustParagraphs.map((p) => (
-                  <p key={p} className="text-sm leading-relaxed text-ink-foreground/75">
-                    {p}
-                  </p>
-                ))}
-              </div>
+                    <Icon className="size-5 shrink-0 text-gold" />
+                    <span className="text-sm font-medium leading-tight text-foreground/80">
+                      {item.label}
+                    </span>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
 
-        <p className="mx-auto mt-14 max-w-3xl text-balance text-center text-base leading-relaxed text-muted-foreground">
-          {about.closing}
-        </p>
+        {/* Нижние заметки */}
+        <div className="mt-10 grid grid-cols-1 gap-8 border-t border-border pt-10 md:grid-cols-2 md:gap-12">
+          {about.notes.map((note) => {
+            const Icon = noteIcons[note.icon as keyof typeof noteIcons]
+            return (
+              <div key={note.text} className="flex items-start gap-4">
+                <Icon className="size-8 shrink-0 text-gold/70" />
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {note.text}
+                </p>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

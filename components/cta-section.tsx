@@ -43,9 +43,9 @@ export function CtaSection() {
 
         <div className="overflow-hidden rounded-2xl">
           <img
-            src="/images/coffee-cta.png"
-            alt="Чашка кофе на стопке ежедневников"
-            className="h-72 w-full object-cover lg:h-80"
+            src="/images/team.jpg"
+            alt="Команда PLN Company за работой"
+            className="h-72 w-full object-cover object-[center_25%] lg:h-96"
           />
         </div>
       </div>

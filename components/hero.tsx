@@ -16,16 +16,15 @@ export function Hero() {
       id="hero"
       className="relative isolate overflow-hidden bg-ink text-ink-foreground"
     >
-      {/* Фоновое изображение — команда PLN Company */}
+      {/* Фоновое изображение — специалист PLN Company */}
       <div className="absolute inset-0 -z-10">
         <img
-          src="/images/team.jpg"
-          alt="Команда PLN Company за работой"
-          className="h-full w-full object-cover object-center"
+          src="/images/owner.jpg"
+          alt="Специалист PLN Company за рабочим столом"
+          className="h-full w-full object-cover object-[70%_30%]"
         />
-        {/* Затемнение и градиент для читаемости текста */}
-        <div className="absolute inset-0 bg-ink/65" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/40" />
+        {/* Градиент для читаемости текста слева */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/30" />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 pb-12 pt-16 lg:px-8 lg:pb-20 lg:pt-40">
