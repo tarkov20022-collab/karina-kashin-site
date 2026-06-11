@@ -31,7 +31,7 @@ export function HeroSection() {
         {/* Fade left edge into solid dark — visible on all devices for text readability */}
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, #1a1206 0%, rgba(26,18,6,0.24) 40%, rgba(26,18,6,0.07) 55%)" }}
+          style={{ background: "linear-gradient(to right, #1a1206 0%, rgba(26,18,6,0.24) 28%, rgba(26,18,6,0.07) 39%)" }}
         />
       </div>
 
