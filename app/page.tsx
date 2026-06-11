@@ -1,5 +1,4 @@
-import { SiteHeader } from "@/components/site-header"
-import { Hero } from "@/components/hero"
+import { HeroSection } from "@/components/hero-section"
 import { About } from "@/components/about"
 import { Services } from "@/components/services"
 import { Stats } from "@/components/stats"
@@ -10,8 +9,7 @@ import { SiteFooter } from "@/components/site-footer"
 export default function Page() {
   return (
     <main className="relative">
-      <SiteHeader />
-      <Hero />
+      <HeroSection />
       <About />
       <Services />
       <Stats />
