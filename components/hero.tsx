@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowUpRight, Clock, Shield, Target, User } from "lucide-react"
+import { ArrowUpRight, Clock, Shield, ShieldCheck, Target, User } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import { hero, features } from "@/lib/content"
 
@@ -16,17 +16,23 @@ export function Hero() {
       id="hero"
       className="relative isolate overflow-hidden bg-ink text-ink-foreground"
     >
-      {/* Фоновое изображение */}
-      <div className="absolute inset-0 -z-10">
+      {/* Тёмный фон */}
+      <div className="absolute inset-0 -z-20 bg-ink" />
+
+      {/* Фоновое изображение — занимает только правую часть, как на макете */}
+      <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[49%]">
         <img
-          src="/images/hero-desk.png"
-          alt="Рабочее место бухгалтера: ноутбук, ежедневник и калькулятор"
-          className="h-full w-full object-cover object-right"
+          src="/images/owner.jpg"
+          alt="Специалист PLN Company за рабочим столом"
+          className="h-full w-full object-cover object-[center_18%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/95 to-ink/40" />
+        {/* Горизонтальный градиент: левый край фото растворяется в тёмном фоне */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/55 to-transparent" />
+        {/* Лёгкое затемнение всего фото для читаемости */}
+        <div className="absolute inset-0 bg-ink/15" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pb-12 pt-32 lg:px-8 lg:pb-20 lg:pt-40">
+      <div className="mx-auto max-w-7xl px-6 pb-12 pt-16 lg:px-8 lg:pb-20 lg:pt-40">
         <div className="max-w-2xl">
           <h1 className="text-balance font-serif text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             {hero.titleLines.map((line, i) => (
@@ -64,6 +70,11 @@ export function Hero() {
               </span>
             </Link>
           </div>
+
+          <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold/30 px-4 py-1.5 text-xs font-medium text-gold">
+            <ShieldCheck className="size-3.5" />
+            {hero.contractNote}
+          </p>
         </div>
 
         {/* Преимущества */}
