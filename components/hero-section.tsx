@@ -38,7 +38,7 @@ export function HeroSection() {
       {/* ── Header / Navbar ── */}
       <header className="relative z-10 w-full">
         {/* Mobile */}
-        <div className="flex flex-col items-center gap-3 px-6 pt-5 pb-3 lg:hidden">
+        <div className="flex flex-col items-center gap-4 px-6 py-5 lg:hidden">
           <Link href="#hero" aria-label={company.name}>
             <Image
               src="/images/pln-logo.png"
@@ -61,7 +61,7 @@ export function HeroSection() {
         </div>
 
         {/* Desktop */}
-        <div className="mx-auto hidden max-w-[1440px] items-center justify-between px-10 pt-5 pb-3 lg:flex">
+        <div className="mx-auto hidden max-w-[1440px] items-center justify-between px-10 pt-12 pb-3 lg:flex">
           {/* Logo — larger, 2.5x original size */}
           <Link href="#hero" aria-label={company.name} className="shrink-0">
             <Image
