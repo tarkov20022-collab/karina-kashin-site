@@ -28,10 +28,10 @@ export function HeroSection() {
         />
         {/* Warm dark tint */}
         <div className="absolute inset-0" style={{ background: "rgba(28,18,6,0.1)" }} />
-        {/* Fade left edge into solid dark — only on desktop */}
+        {/* Fade left edge into solid dark — visible on all devices for text readability */}
         <div
-          className="absolute inset-0 hidden lg:block"
-          style={{ background: "linear-gradient(to right, #1a1206 0%, rgba(26,18,6,0.5) 40%, rgba(26,18,6,0) 70%)" }}
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to right, #1a1206 0%, rgba(26,18,6,0.75) 50%, rgba(26,18,6,0.4) 100%)" }}
         />
       </div>
 
