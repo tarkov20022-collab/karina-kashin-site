@@ -25,12 +25,12 @@ export function Services() {
           <p className="text-xs font-semibold tracking-[0.2em] text-gold">
             {services.eyebrow}
           </p>
-          <h2 className="mt-3 text-balance font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mt-2 text-balance font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             {services.title}
           </h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.items.map((item) => {
             const Icon = serviceIcons[item.icon as keyof typeof serviceIcons]
             return (
