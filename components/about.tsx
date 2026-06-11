@@ -77,7 +77,7 @@ export function About() {
             <img
               src="/images/about-desk.jpg"
               alt="Рабочее место бухгалтера PLN Company"
-              className="h-full min-h-52 w-full object-cover"
+              className="h-full min-h-28 w-full object-cover"
             />
             <div className="absolute bottom-6 left-6 max-w-sm rounded-2xl bg-ink/95 px-7 py-6 backdrop-blur-sm">
               <p className="whitespace-pre-line font-serif text-xl font-semibold leading-relaxed text-gold">
