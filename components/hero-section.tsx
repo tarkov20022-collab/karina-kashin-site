@@ -20,7 +20,7 @@ export function HeroSection() {
       {/* Solid dark base */}
       <div className="absolute inset-0 z-0 bg-[#1a1206]" />
       {/* Photo on the right half only — portrait image shows the woman naturally */}
-      <div className="absolute inset-y-0 right-0 z-0 w-[62%]">
+      <div className="absolute inset-y-0 right-0 z-0 w-[37%]">
         <img
           src="/images/owner.jpg"
           alt="Специалист PLN Company"
@@ -31,7 +31,7 @@ export function HeroSection() {
         {/* Fade left edge into solid dark */}
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, #1a1206 0%, rgba(26,18,6,0.6) 18%, rgba(26,18,6,0) 38%)" }}
+          style={{ background: "linear-gradient(to right, #1a1206 0%, rgba(26,18,6,0.6) 25%, rgba(26,18,6,0) 50%)" }}
         />
       </div>
 
