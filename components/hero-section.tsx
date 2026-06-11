@@ -61,16 +61,16 @@ export function HeroSection() {
         </div>
 
         {/* Desktop */}
-        <div className="mx-auto hidden max-w-[1440px] items-center justify-between px-10 py-5 lg:flex">
-          {/* Logo — small with tagline */}
+        <div className="mx-auto hidden max-w-[1440px] items-center justify-between px-10 pt-12 pb-3 lg:flex">
+          {/* Logo — larger, 2.5x original size */}
           <Link href="#hero" aria-label={company.name} className="shrink-0">
             <Image
               src="/images/pln-logo.png"
               alt={company.name}
-              width={220}
-              height={44}
+              width={550}
+              height={110}
               priority
-              className="h-auto w-[200px]"
+              className="h-auto w-[500px]"
             />
           </Link>
 

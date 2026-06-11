@@ -46,9 +46,9 @@ export function SiteFooter() {
             <Image
               src="/images/pln-logo.png"
               alt={`${company.name} — ${company.tagline}`}
-              width={300}
-              height={60}
-              className="h-11 w-auto"
+              width={2100}
+              height={420}
+              className="h-auto w-full max-w-[420px]"
             />
             <p className="mt-5 max-w-xs whitespace-pre-line text-sm leading-relaxed text-ink-foreground/55">
               {company.taglineFull}
