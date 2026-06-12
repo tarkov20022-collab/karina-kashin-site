@@ -6,7 +6,7 @@ export const company = {
   taglineFull: "Бухгалтерский аутсорсинг\nдля бизнеса в Казахстане",
   phone: "+7 701 557 49 32",
   email: "Glavbuh@pln.kz",
-  location: "Казахстан",
+  location: "Караганда",
   whatsapp: "https://wa.me/77015574932",
   instagram: "https://www.instagram.com/pln.company.krg",
   twogis: "https://go.2gis.com/PJ5jZ",
@@ -147,10 +147,10 @@ export const services = {
 }
 
 export const stats = [
-  { icon: "users", value: "100+", label: "довольных клиентов", sub: "по всему Казахстану (работаем)" },
+  { icon: "users", value: "100+", label: "довольных клиентов", sub: "по всему Казахстану" },
   { icon: "clock", value: "10+", label: "лет опыта", sub: "в бухгалтерском сопровождении" },
   { icon: "clipboard-check", value: "1000+", label: "сданных отчетов", sub: "без штрафов и задержек" },
-  { icon: "shield-check", value: "100%", label: "отчетности вовремя", sub: "точность и ответственность" },
+  { icon: "shield-check", value: "100%", label: "отчетно��ти вовремя", sub: "точность и ответственность" },
 ]
 
 export const certificates = {
