@@ -150,7 +150,7 @@ export const stats = [
   { icon: "users", value: "100+", label: "довольных клиентов", sub: "по всему Казахстану" },
   { icon: "clock", value: "10+", label: "лет опыта", sub: "в бухгалтерском сопровождении" },
   { icon: "clipboard-check", value: "1000+", label: "сданных отчетов", sub: "без штрафов и задержек" },
-  { icon: "shield-check", value: "100%", label: "отчетно��ти вовремя", sub: "точность и ответственность" },
+  { icon: "shield-check", value: "100%", label: "отчетности вовремя", sub: "точность и ответственность" },
 ]
 
 export const certificates = {
