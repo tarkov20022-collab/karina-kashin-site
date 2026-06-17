@@ -38,7 +38,7 @@ export function ChangesSection() {
 
             <div className="relative">
               <span className="absolute -left-5 top-1/2 hidden -translate-y-1/2 text-accent sm:block">
-                <ArrowRight className="size-5" />
+                <ArrowRight className="size-5 ml-[-107px]" />
               </span>
               <span className="text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
                 Что появляется
