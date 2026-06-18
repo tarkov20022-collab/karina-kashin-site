@@ -1,5 +1,8 @@
+'use client'
+
 import { ArrowRight, GraduationCap } from 'lucide-react'
 import Image from 'next/image'
+import { AnimatedFadeUp, AnimatedContainer, AnimatedItem } from '../animated-fade-up'
 
 const cards = [
   {
@@ -23,17 +26,19 @@ export function TrainingSection() {
   return (
     <section id="training" className="bg-background py-32 md:py-40 mt-8">
       <div className="mx-auto max-w-7xl px-5 md:px-10">
-        <div className="flex items-center gap-4">
-          <h2 className="font-serif text-3xl font-medium text-foreground md:text-4xl">
-            Обучение Access Bars
-          </h2>
-          <span className="h-px flex-1 bg-border" />
-        </div>
+        <AnimatedFadeUp>
+          <div className="flex items-center gap-4">
+            <h2 className="font-serif text-3xl font-medium text-foreground md:text-4xl">
+              Обучение Access Bars
+            </h2>
+            <span className="h-px flex-1 bg-border" />
+          </div>
+        </AnimatedFadeUp>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <AnimatedContainer className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4" staggerDelay={0.1}>
           {cards.map((card) => (
-            <article
-              key={card.tag}
+            <AnimatedItem key={card.tag}>
+              <article
               className="overflow-hidden rounded-2xl border border-border bg-card"
             >
               <div className="relative h-44 w-full">
@@ -59,9 +64,11 @@ export function TrainingSection() {
                 </a>
               </div>
             </article>
+            </AnimatedItem>
           ))}
 
-          <article className="flex flex-col justify-between rounded-2xl bg-primary p-6 text-primary-foreground">
+          <AnimatedItem>
+            <article className="flex flex-col justify-between rounded-2xl bg-primary p-6 text-primary-foreground">
             <div>
               <span className="flex size-11 items-center justify-center rounded-full bg-primary-foreground/10">
                 <GraduationCap className="size-6" strokeWidth={1.5} />
@@ -77,8 +84,9 @@ export function TrainingSection() {
             >
               Смотреть расписание
             </a>
-          </article>
-        </div>
+            </article>
+          </AnimatedItem>
+        </AnimatedContainer>
       </div>
     </section>
   )
