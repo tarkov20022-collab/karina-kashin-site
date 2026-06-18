@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ShieldCheck, Send, MessageCircle, Phone } from 'lucide-react'
+import { AnimatedFadeUp } from '../animated-fade-up'
 
 export function ContactFooter() {
   const [submitted, setSubmitted] = useState(false)
@@ -11,14 +12,18 @@ export function ContactFooter() {
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <h2 className="font-serif text-3xl font-medium leading-tight md:text-[2.6rem] text-balance">
-              Возможно, именно сейчас начинается новая глава вашей жизни.
-            </h2>
-            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-primary-foreground/70">
-              Каждая перемена начинается с одного вопроса: что ещё возможно для
-              вас? Оставьте контакты — и я свяжусь с вами, чтобы подобрать формат
-              работы.
-            </p>
+            <AnimatedFadeUp>
+              <h2 className="font-serif text-3xl font-medium leading-tight md:text-[2.6rem] text-balance">
+                Возможно, именно сейчас начинается новая глава вашей жизни.
+              </h2>
+            </AnimatedFadeUp>
+            <AnimatedFadeUp delay={0.2}>
+              <p className="mt-6 max-w-md text-[15px] leading-relaxed text-primary-foreground/70">
+                Каждая перемена начинается с одного вопроса: что ещё возможно для
+                вас? Оставьте контакты — и я свяжусь с вами, чтобы подобрать формат
+                работы.
+              </p>
+            </AnimatedFadeUp>
           </div>
 
           <div>

@@ -1,10 +1,14 @@
+'use client'
+
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import { AnimatedScale } from '../animated-fade-up'
 
 export function AudienceSection() {
   return (
     <section className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-5 py-16 md:px-10 lg:grid-cols-2">
       {/* Women */}
+      <AnimatedScale>
       <article className="relative overflow-hidden rounded-2xl">
         <Image
           src="/images/women.png"
@@ -32,8 +36,10 @@ export function AudienceSection() {
           </a>
         </div>
       </article>
+      </AnimatedScale>
 
       {/* Men */}
+      <AnimatedScale>
       <article className="relative overflow-hidden rounded-2xl">
         <Image
           src="/images/men.png"
@@ -61,6 +67,7 @@ export function AudienceSection() {
           </a>
         </div>
       </article>
+      </AnimatedScale>
     </section>
   )
 }

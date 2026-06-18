@@ -1,4 +1,7 @@
+'use client'
+
 import { X, Check, ArrowRight } from 'lucide-react'
+import { AnimatedFadeUp, AnimatedContainer, AnimatedItem } from '../animated-fade-up'
 
 const leaves = ['Тревога', 'Внутренний шум', 'Усталость', 'Страхи', 'Сомнения', 'Напряжение']
 const arrives = [
@@ -24,35 +27,39 @@ export function ChangesSection() {
               <span className="text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
                 Что уходит
               </span>
-              <ul className="mt-6 space-y-4">
+              <AnimatedContainer as="ul" className="mt-6 space-y-4" staggerDelay={0.08}>
                 {leaves.map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-[15px] text-foreground/90">
-                    <span className="flex size-6 items-center justify-center rounded-full border border-border text-muted-foreground">
-                      <X className="size-3.5" />
-                    </span>
-                    {item}
-                  </li>
+                  <AnimatedItem as="li" key={item}>
+                    <div className="flex items-center gap-3 text-[15px] text-foreground/90">
+                      <span className="flex size-6 items-center justify-center rounded-full border border-border text-muted-foreground">
+                        <X className="size-3.5" />
+                      </span>
+                      {item}
+                    </div>
+                  </AnimatedItem>
                 ))}
-              </ul>
+              </AnimatedContainer>
             </div>
 
             <div className="relative">
               <span className="absolute -left-5 top-1/2 hidden -translate-y-1/2 text-accent sm:block">
-                <ArrowRight className="size-5" />
+                <ArrowRight className="size-5 ml-[-107px]" />
               </span>
               <span className="text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
                 Что появляется
               </span>
-              <ul className="mt-6 space-y-4">
+              <AnimatedContainer as="ul" className="mt-6 space-y-4" staggerDelay={0.08}>
                 {arrives.map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-[15px] font-medium text-foreground">
-                    <span className="flex size-6 items-center justify-center rounded-full bg-accent text-accent-foreground">
-                      <Check className="size-3.5" />
-                    </span>
-                    {item}
-                  </li>
+                  <AnimatedItem as="li" key={item}>
+                    <div className="flex items-center gap-3 text-[15px] text-foreground/90">
+                      <span className="flex size-6 items-center justify-center rounded-full border border-accent bg-accent/10 text-accent">
+                        <Check className="size-3.5" />
+                      </span>
+                      {item}
+                    </div>
+                  </AnimatedItem>
                 ))}
-              </ul>
+              </AnimatedContainer>
             </div>
           </div>
         </div>

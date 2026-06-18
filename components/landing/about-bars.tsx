@@ -1,20 +1,25 @@
+'use client'
+
 import Image from 'next/image'
+import { AnimatedScale, AnimatedFadeUp } from '../animated-fade-up'
 
 export function AboutBars() {
   return (
     <section id="bars" className="bg-background">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-stretch lg:grid-cols-2">
-        <div className="relative min-h-[360px] lg:min-h-[620px]">
-          <Image
-            src="/images/access-bars-session.png"
-            alt="Сессия Access Bars"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
-        </div>
+        <AnimatedScale>
+          <div className="relative min-h-[360px] lg:min-h-[620px]">
+            <Image
+              src="/images/access-bars-session.png"
+              alt="Сессия Access Bars"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+        </AnimatedScale>
 
-        <div className="flex flex-col justify-center bg-secondary px-5 py-16 md:px-12 lg:py-24">
+        <AnimatedFadeUp className="flex flex-col justify-center bg-secondary px-5 py-16 md:px-12 lg:py-24">
           <span className="text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
             Что такое Access Bars
           </span>
@@ -41,7 +46,7 @@ export function AboutBars() {
           <blockquote className="mt-9 border-l-2 border-accent pl-5 font-serif text-xl italic leading-snug text-foreground/90 md:text-2xl">
             «Иногда ясность приходит не через усилие, а через расслабление.»
           </blockquote>
-        </div>
+        </AnimatedFadeUp>
       </div>
     </section>
   )
