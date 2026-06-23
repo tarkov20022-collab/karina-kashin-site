@@ -71,7 +71,7 @@ export function RecognizeSection() {
                     alt={p.text}
                     fill
                     sizes="100px"
-                    className="object-contain"
+                    className="object-contain rounded-xl"
                   />
                 </div>
 
