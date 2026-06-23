@@ -40,7 +40,7 @@ export function RecognizeSection() {
           <div className="text-center mb-4">
             <h2 className="font-serif text-4xl md:text-5xl font-medium leading-tight text-foreground text-balance relative inline-block w-full">
               Знакомо ли вам это состояние?
-              <svg className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md h-8 mt-2" viewBox="0 0 400 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md h-8 mt-2 pt-px ml-[15px] -mb-[18px]" viewBox="0 0 400 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 15Q50 5 100 15T200 15T300 15T400 15" stroke="currentColor" strokeWidth="2" className="text-accent" strokeLinecap="round"/>
               </svg>
             </h2>
