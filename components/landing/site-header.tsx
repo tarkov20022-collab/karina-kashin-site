@@ -11,17 +11,27 @@ const navLinks = [
   { label: 'Контакты', href: '#contact' },
 ]
 
-export function SiteHeader() {
+export function SiteHeader({ onHero = false }: { onHero?: boolean }) {
   const [open, setOpen] = useState(false)
+
+  const textColorClass = onHero ? 'text-white' : 'text-foreground'
+  const linkColorClass = onHero ? 'text-white/70 hover:text-white' : 'text-foreground/80 hover:text-foreground'
+  const subtextColorClass = onHero ? 'text-white/50' : 'text-muted-foreground'
+  const ctaClass = onHero 
+    ? 'bg-foreground text-background' 
+    : 'bg-primary text-primary-foreground'
+  const menuBgClass = onHero
+    ? 'bg-black/70 border-white/10'
+    : 'bg-card/95 border-border'
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 md:px-10 md:py-7">
         <a href="#" className="flex flex-col leading-none">
-          <span className="font-serif text-xl font-semibold tracking-tight text-foreground md:text-2xl">
+          <span className={`font-serif text-xl font-semibold tracking-tight ${textColorClass} md:text-2xl`}>
             Карина Кашина
           </span>
-          <span className="mt-0.5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <span className={`mt-0.5 text-[11px] uppercase tracking-[0.22em] ${subtextColorClass}`}>
             Access Consciousness
           </span>
         </a>
@@ -31,7 +41,7 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-foreground/80 transition-colors hover:text-foreground"
+              className={`text-sm transition-colors ${linkColorClass}`}
             >
               {link.label}
             </a>
@@ -41,7 +51,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className="hidden rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 md:inline-block"
+            className={`hidden rounded-full px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90 md:inline-block ${ctaClass}`}
           >
             Записаться на сессию
           </a>
@@ -49,7 +59,11 @@ export function SiteHeader() {
             type="button"
             aria-label="Меню"
             onClick={() => setOpen((v) => !v)}
-            className="rounded-full border border-border bg-card/70 p-2.5 text-foreground backdrop-blur lg:hidden"
+            className={`rounded-full p-2.5 backdrop-blur lg:hidden ${
+              onHero
+                ? 'border-white/20 bg-white/10 text-white'
+                : 'border-border bg-card/70 text-foreground'
+            }`}
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -57,14 +71,22 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="mx-4 rounded-2xl border border-border bg-card/95 p-4 shadow-lg backdrop-blur lg:hidden">
+        <div className={`mx-4 rounded-2xl p-4 shadow-lg backdrop-blur lg:hidden ${
+          onHero
+            ? `${menuBgClass} border-white/10`
+            : `${menuBgClass} border-border`
+        }`}>
           <nav className="flex flex-col">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-sm text-foreground/90 hover:bg-secondary"
+                className={`rounded-lg px-3 py-3 text-sm ${
+                  onHero 
+                    ? 'text-white/80 hover:bg-white/10' 
+                    : 'text-foreground/90 hover:bg-secondary'
+                }`}
               >
                 {link.label}
               </a>
@@ -72,7 +94,7 @@ export function SiteHeader() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-primary px-6 py-3 text-center text-sm font-medium text-primary-foreground"
+              className={`mt-2 rounded-full px-6 py-3 text-center text-sm font-medium ${ctaClass}`}
             >
               Записаться на сессию
             </a>

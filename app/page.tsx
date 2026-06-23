@@ -1,4 +1,3 @@
-import { SiteHeader } from '@/components/landing/site-header'
 import { Hero } from '@/components/landing/hero'
 import { RecognizeSection } from '@/components/landing/recognize-section'
 import { AboutBars } from '@/components/landing/about-bars'
@@ -12,7 +11,6 @@ import { ContactFooter } from '@/components/landing/contact-footer'
 export default function Page() {
   return (
     <main className="bg-background">
-      <SiteHeader />
       <Hero />
       <RecognizeSection />
       <AboutBars />
