@@ -14,15 +14,19 @@ const navLinks = [
 export function SiteHeader({ onHero = false }: { onHero?: boolean }) {
   const [open, setOpen] = useState(false)
 
-  const textColorClass = onHero ? 'text-white' : 'text-foreground'
-  const linkColorClass = onHero ? 'text-white/70 hover:text-white' : 'text-foreground/80 hover:text-foreground'
-  const subtextColorClass = onHero ? 'text-white/50' : 'text-muted-foreground'
+  // For cream background, use dark colors. For other sections, use existing logic.
+  const textColorClass = onHero ? 'text-foreground' : 'text-foreground'
+  const linkColorClass = onHero ? 'text-foreground/70 hover:text-foreground' : 'text-foreground/80 hover:text-foreground'
+  const subtextColorClass = onHero ? 'text-foreground/50' : 'text-muted-foreground'
   const ctaClass = onHero 
-    ? 'bg-foreground text-background' 
+    ? 'hover:opacity-90 transition-opacity'
     : 'bg-primary text-primary-foreground'
   const menuBgClass = onHero
-    ? 'bg-black/70 border-white/10'
+    ? 'bg-white/80 border-border'
     : 'bg-card/95 border-border'
+  
+  // Apply gold styling for hero CTA
+  const heroCtaStyle = onHero ? { backgroundColor: '#CFA15A', color: '#FFFFFF' } : undefined
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -51,7 +55,8 @@ export function SiteHeader({ onHero = false }: { onHero?: boolean }) {
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className={`hidden rounded-full px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90 md:inline-block ${ctaClass}`}
+            className={`hidden rounded-full px-6 py-3 text-sm font-medium md:inline-block ${onHero ? '' : ctaClass}`}
+            style={heroCtaStyle}
           >
             Записаться на сессию
           </a>
