@@ -14,19 +14,12 @@ const navLinks = [
 export function SiteHeader({ onHero = false }: { onHero?: boolean }) {
   const [open, setOpen] = useState(false)
 
-  // For cream background, use dark colors. For other sections, use existing logic.
-  const textColorClass = onHero ? 'text-foreground' : 'text-foreground'
-  const linkColorClass = onHero ? 'text-foreground/70 hover:text-foreground' : 'text-foreground/80 hover:text-foreground'
-  const subtextColorClass = onHero ? 'text-foreground/50' : 'text-muted-foreground'
-  const ctaClass = onHero 
-    ? 'hover:opacity-90 transition-opacity'
-    : 'bg-primary text-primary-foreground'
-  const menuBgClass = onHero
-    ? 'bg-white/80 border-border'
-    : 'bg-card/95 border-border'
-  
-  // Apply gold styling for hero CTA
-  const heroCtaStyle = onHero ? { backgroundColor: '#CFA15A', color: '#FFFFFF' } : undefined
+  const textColorClass = 'text-foreground'
+  const linkColorClass = 'text-foreground/70 hover:text-foreground'
+  const subtextColorClass = 'text-muted-foreground'
+  const ctaClass = 'bg-primary text-primary-foreground'
+  const menuBgClass = 'bg-card/95 border-border'
+  const heroCtaStyle = onHero ? { backgroundColor: '#C9A063', color: '#FFFFFF' } : undefined
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -64,11 +57,7 @@ export function SiteHeader({ onHero = false }: { onHero?: boolean }) {
             type="button"
             aria-label="Меню"
             onClick={() => setOpen((v) => !v)}
-            className={`rounded-full p-2.5 backdrop-blur lg:hidden ${
-              onHero
-                ? 'border-white/20 bg-white/10 text-white'
-                : 'border-border bg-card/70 text-foreground'
-            }`}
+            className="rounded-full p-2.5 backdrop-blur lg:hidden border-border bg-card/70 text-foreground"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -76,22 +65,14 @@ export function SiteHeader({ onHero = false }: { onHero?: boolean }) {
       </div>
 
       {open && (
-        <div className={`mx-4 rounded-2xl p-4 shadow-lg backdrop-blur lg:hidden ${
-          onHero
-            ? `${menuBgClass} border-white/10`
-            : `${menuBgClass} border-border`
-        }`}>
+        <div className={`mx-4 rounded-2xl p-4 shadow-lg backdrop-blur lg:hidden ${menuBgClass} border-border`}>
           <nav className="flex flex-col">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`rounded-lg px-3 py-3 text-sm ${
-                  onHero 
-                    ? 'text-white/80 hover:bg-white/10' 
-                    : 'text-foreground/90 hover:bg-secondary'
-                }`}
+                className="rounded-lg px-3 py-3 text-sm text-foreground/90 hover:bg-secondary"
               >
                 {link.label}
               </a>
