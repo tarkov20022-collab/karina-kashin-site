@@ -165,15 +165,15 @@ export function Hero() {
             </div>
 
             {/* Right side - Portrait with decorative objects behind */}
-            <div className="relative hidden lg:block h-screen flex items-center justify-end">
-              <div className="relative w-full max-w-md h-4/5">
+            <div className="relative hidden lg:flex items-center justify-end">
+              <div className="relative w-full h-[500px]">
                 {/* Portrait image */}
                 <Image
                   src="/images/hero-bg-new.jpg"
                   alt="Карина Кашина — Access Consciousness"
                   fill
                   priority
-                  sizes="(max-width: 1024px) 0, 100vw"
+                  sizes="(max-width: 1024px) 0, 500px"
                   className="object-cover object-center rounded-2xl"
                   quality={100}
                 />
