@@ -1,17 +1,126 @@
 'use client'
 
-import { X, Check } from 'lucide-react'
 import { AnimatedFadeUp, AnimatedContainer, AnimatedItem } from '../animated-fade-up'
 
-const leaves = ['Тревога', 'Внутренний шум', 'Усталость', 'Страхи', 'Сомнения', 'Напряжение']
-const arrives = [
-  'Спокойствие',
-  'Ясность мышления',
-  'Лёгкость',
-  'Энергия',
-  'Уверенность',
-  'Новые идеи и возможности',
+const leaveItems = [
+  { label: 'Тревога', icon: 'knot' },
+  { label: 'Внутренний шум', icon: 'sound' },
+  { label: 'Усталость', icon: 'bed' },
+  { label: 'Страхи', icon: 'cloud' },
+  { label: 'Сомнения', icon: 'question' },
+  { label: 'Напряжение', icon: 'lightning' },
 ]
+
+const arriveItems = [
+  { label: 'Спокойствие', icon: 'lotus' },
+  { label: 'Ясность мышления', icon: 'sun' },
+  { label: 'Лёгкость', icon: 'feather' },
+  { label: 'Энергия', icon: 'star' },
+  { label: 'Уверенность', icon: 'shield' },
+  { label: 'Новые идеи и возможности', icon: 'sparkle' },
+]
+
+// Icon components
+const LeaveIcon = ({ type }: { type: string }) => {
+  switch (type) {
+    case 'knot':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 8C8 4 12 2 12 2C12 2 16 4 16 8M16 16C16 20 12 22 12 22C12 22 8 20 8 16M12 8V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        </svg>
+      )
+    case 'sound':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 8V16M10 6V18M14 8V16M18 10V14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )
+    case 'bed':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 10H21V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M3 10V7C3 5.89543 3.89543 5 5 5H19C20.1046 5 21 5.89543 21 7V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 10V19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        </svg>
+      )
+    case 'cloud':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 14C4 14 2 15.5 2 17.5C2 19.5 4 21 6 21M18 14C16 14 14 15.5 14 17.5C14 19.5 16 21 18 21M10 16L9 19M14 14L13 17M6 14L5 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M7 6C9.5 3 15 3 17 6C20 6 22 8.5 22 11.5C22 14.5 20 17 17 17H7C4 17 2 15 2 12.5C2 10 4 7 7 6Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )
+    case 'question':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/>
+          <path d="M9.5 10C9.5 9 10.5 8 12 8C13.5 8 14.5 9 14.5 10C14.5 11 13.5 11.5 13 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+        </svg>
+      )
+    case 'lightning':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 2L6 13H11L10 22L18 10H13L13 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )
+    default:
+      return null
+  }
+}
+
+const ArriveIcon = ({ type }: { type: string }) => {
+  switch (type) {
+    case 'lotus':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C12 2 8 6 8 10C8 14 10 17 12 17C14 17 16 14 16 10C16 6 12 2 12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M6 12C6 12 3 11 2 14C1 17 3 20 6 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M18 12C18 12 21 11 22 14C23 17 21 20 18 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <circle cx="12" cy="18" r="2" fill="currentColor"/>
+        </svg>
+      )
+    case 'sun':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5"/>
+          <path d="M12 2V4M12 20V22M22 12H20M4 12H2M19.08 4.92L17.65 6.35M6.35 17.65L4.92 19.08M19.08 19.08L17.65 17.65M6.35 6.35L4.92 4.92" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )
+    case 'feather':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2C6 2 4 6 4 10C4 15 6 20 10 21C14 22 16 18 16 14L16 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M8 4L12 6M8 8L14 10M8 12L12 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        </svg>
+      )
+    case 'star':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L15 10H23L17 15L19 23L12 18L5 23L7 15L1 10H9L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )
+    case 'shield':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L3 6V12C3 18 12 22 12 22C12 22 21 18 21 12V6L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M8 12L11 15L16 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )
+    case 'sparkle':
+      return (
+        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L14 8H20L15 12L17 18L12 14L7 18L9 12L4 8H10L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <circle cx="3" cy="5" r="1" fill="currentColor"/>
+          <circle cx="20" cy="7" r="1" fill="currentColor"/>
+          <circle cx="21" cy="18" r="1" fill="currentColor"/>
+        </svg>
+      )
+    default:
+      return null
+  }
+}
 
 export function ChangesSection() {
   return (
@@ -73,13 +182,13 @@ export function ChangesSection() {
                 </h3>
               </div>
               <div className="divide-y divide-border/20">
-                {leaves.map((item) => (
-                  <AnimatedItem key={item}>
+                {leaveItems.map((item) => (
+                  <AnimatedItem key={item.label}>
                     <div className="px-5 md:px-7 py-4 md:py-5 flex items-center gap-3 md:gap-4 group hover:bg-secondary/10 transition-colors min-h-[60px] md:min-h-[56px]">
-                      <span className="flex size-6 md:size-7 shrink-0 items-center justify-center rounded-full border border-muted-foreground/25 text-muted-foreground group-hover:border-muted-foreground/40 transition-colors">
-                        <X className="size-3.5 md:size-4" strokeWidth={2.5} />
+                      <span className="flex size-7 md:size-8 shrink-0 items-center justify-center text-accent group-hover:scale-110 transition-transform">
+                        <LeaveIcon type={item.icon} />
                       </span>
-                      <span className="text-xs md:text-sm text-foreground font-light tracking-tight">{item}</span>
+                      <span className="text-xs md:text-sm text-foreground font-light tracking-tight">{item.label}</span>
                       <span className="ml-auto hidden lg:block text-accent opacity-0 group-hover:opacity-100 transition-opacity">
                         <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -108,13 +217,13 @@ export function ChangesSection() {
                 </h3>
               </div>
               <div className="divide-y divide-border/20">
-                {arrives.map((item) => (
-                  <AnimatedItem key={item}>
+                {arriveItems.map((item) => (
+                  <AnimatedItem key={item.label}>
                     <div className="px-5 md:px-7 py-4 md:py-5 flex items-center gap-3 md:gap-4 group hover:bg-secondary/10 transition-colors min-h-[60px] md:min-h-[56px]">
-                      <span className="flex size-6 md:size-7 shrink-0 items-center justify-center rounded-full border border-accent/25 bg-accent/8 text-accent group-hover:bg-accent/12 transition-colors">
-                        <Check className="size-3.5 md:size-4" strokeWidth={3} />
+                      <span className="flex size-7 md:size-8 shrink-0 items-center justify-center text-accent group-hover:scale-110 transition-transform">
+                        <ArriveIcon type={item.icon} />
                       </span>
-                      <span className="text-xs md:text-sm text-foreground font-light tracking-tight">{item}</span>
+                      <span className="text-xs md:text-sm text-foreground font-light tracking-tight">{item.label}</span>
                     </div>
                   </AnimatedItem>
                 ))}
