@@ -174,7 +174,13 @@ export function Hero() {
               quality={100}
               sizes="56vw"
               className="object-contain object-left"
-              style={{ zIndex: 5 }}
+              style={{ 
+                zIndex: 5,
+                marginLeft: '-236px',
+                marginTop: '5px',
+                marginRight: '5px',
+                lineHeight: '5.1em'
+              }}
             />
 
             {/* ── 3D OBJECTS: Depth layering for approved mockup ── */}
