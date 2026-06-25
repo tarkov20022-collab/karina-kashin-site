@@ -176,7 +176,7 @@ export function Hero() {
               className="object-contain object-left"
               style={{ 
                 zIndex: 5,
-                marginLeft: '-236px',
+                marginLeft: '-118px',
                 marginTop: '5px',
                 marginRight: '5px',
                 lineHeight: '5.1em'
