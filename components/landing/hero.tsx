@@ -123,7 +123,7 @@ export function Hero() {
           */}
           <div
             className="relative hidden lg:flex"
-            style={{ width: '56%', marginRight: '-8%', marginLeft: '-155px', alignSelf: 'stretch' }}
+            style={{ width: '56%', marginRight: '-148px', marginLeft: '-192px', alignSelf: 'stretch' }}
           >
             {/* Warm radial gradient + curved lines backdrop */}
             <div
