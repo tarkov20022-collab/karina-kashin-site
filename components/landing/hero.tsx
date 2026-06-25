@@ -153,13 +153,13 @@ export function Hero() {
 
             {/* Portrait */}
             <Image
-              src="/images/hero-bg-new.jpg"
+              src="/images/hero-portrait.png"
               alt="Карина Кашина — Access Consciousness"
               fill
               priority
               quality={100}
               sizes="56vw"
-              className="object-cover object-left"
+              className="object-contain object-left"
               style={{ zIndex: 5 }}
             />
 
