@@ -134,21 +134,35 @@ export function Hero() {
               }}
             />
 
-            {/* Elegant curved lines behind portrait */}
+            {/* Elegant curved decorative lines connecting objects */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none"
               viewBox="0 0 600 900"
               preserveAspectRatio="none"
-              style={{ zIndex: 0 }}
+              style={{ zIndex: 3 }}
             >
               <defs>
                 <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#C9A063" stopOpacity="0.15" />
+                  <stop offset="0%" stopColor="#C9A063" stopOpacity="0.12" />
                   <stop offset="100%" stopColor="#C9A063" stopOpacity="0" />
                 </linearGradient>
               </defs>
-              <path d="M 100 200 Q 200 300 150 500" stroke="url(#goldGradient)" strokeWidth="1.5" fill="none" />
-              <path d="M 80 100 Q 250 400 200 800" stroke="url(#goldGradient)" strokeWidth="1" fill="none" />
+              
+              {/* Curved line from feather to lotus */}
+              <path d="M 350 150 Q 280 250 200 350" stroke="url(#goldGradient)" strokeWidth="0.8" fill="none" />
+              
+              {/* Curved line from lotus to key */}
+              <path d="M 180 380 Q 150 450 180 520" stroke="url(#goldGradient)" strokeWidth="0.8" fill="none" />
+              
+              {/* Curved line from key down to hourglass area */}
+              <path d="M 220 550 Q 320 650 450 750" stroke="url(#goldGradient)" strokeWidth="0.8" fill="none" />
+              
+              {/* Subtle background flowing curves */}
+              <path d="M 100 200 Q 200 300 150 500" stroke="url(#goldGradient)" strokeWidth="1" fill="none" opacity="0.6" />
+              <path d="M 80 100 Q 250 400 200 800" stroke="url(#goldGradient)" strokeWidth="0.8" fill="none" opacity="0.5" />
+              
+              {/* Curved line connecting right-side spheres */}
+              <path d="M 520 200 Q 480 350 500 550" stroke="url(#goldGradient)" strokeWidth="0.7" fill="none" opacity="0.7" />
             </svg>
 
             {/* Portrait */}
