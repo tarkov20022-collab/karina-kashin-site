@@ -60,8 +60,8 @@ export function Hero() {
             {/* Headline */}
             <AnimatedFadeUp delay={0.1}>
               <h1
-                className="mt-6 font-serif font-semibold leading-[1.0] tracking-tight"
-                style={{ color: '#2A1F17', fontSize: 'clamp(56px, 7vw, 112px)' }}
+                className="mt-2 font-serif font-semibold leading-[0.95] tracking-tight"
+                style={{ color: '#2A1F17', fontSize: 'clamp(60px, 7.7vw, 124px)' }}
               >
                 ЧТО ЕЩЁ<br />ВОЗМОЖНО?
               </h1>
@@ -117,14 +117,40 @@ export function Hero() {
 
           {/* ── RIGHT: portrait + 3D objects ── */}
           {/*
-            This container is 45% wide, full height of the hero.
-            The portrait fills it entirely.
-            All 3D objects are absolutely positioned ON TOP of the portrait.
+            Portrait container expanded to ~56% (25% increase from 45%).
+            Extends beyond right edge of viewport for editorial feel.
+            All 3D objects layered with z-index for depth.
           */}
           <div
-            className="relative hidden lg:block"
-            style={{ width: '45%', alignSelf: 'stretch' }}
+            className="relative hidden lg:flex"
+            style={{ width: '56%', marginRight: '-8%', alignSelf: 'stretch' }}
           >
+            {/* Warm radial gradient + curved lines backdrop */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                zIndex: 0,
+                background: 'radial-gradient(ellipse at 30% 40%, rgba(201, 160, 99, 0.08) 0%, rgba(201, 160, 99, 0.02) 40%, transparent 70%)',
+              }}
+            />
+
+            {/* Elegant curved lines behind portrait */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              viewBox="0 0 600 900"
+              preserveAspectRatio="none"
+              style={{ zIndex: 0 }}
+            >
+              <defs>
+                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#C9A063" stopOpacity="0.15" />
+                  <stop offset="100%" stopColor="#C9A063" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <path d="M 100 200 Q 200 300 150 500" stroke="url(#goldGradient)" strokeWidth="1.5" fill="none" />
+              <path d="M 80 100 Q 250 400 200 800" stroke="url(#goldGradient)" strokeWidth="1" fill="none" />
+            </svg>
+
             {/* Portrait */}
             <Image
               src="/images/hero-bg-new.jpg"
@@ -132,50 +158,20 @@ export function Hero() {
               fill
               priority
               quality={100}
-              sizes="45vw"
-              className="object-cover object-top"
-              style={{ zIndex: 1 }}
+              sizes="56vw"
+              className="object-cover object-left"
+              style={{ zIndex: 5 }}
             />
 
             {/* ── 3D OBJECTS over portrait ── */}
 
-            {/* Feather — upper right, near head */}
+            {/* Feather — near head (overlapping portrait, in front) */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ top: '10%', right: '8%', width: 200, height: 200, zIndex: 25, animationDuration: '6s', animationDelay: '0s' }}
+              style={{ top: '12%', left: '35%', width: 220, height: 220, zIndex: 15, animationDuration: '6s', animationDelay: '0s' }}
             >
               <Image
                 src="/images/3d-feather.png"
-                alt=""
-                fill
-                sizes="200px"
-                className="object-contain"
-                priority
-              />
-            </div>
-
-            {/* Lotus — center-left, over torso */}
-            <div
-              className="absolute pointer-events-none animate-float"
-              style={{ top: '35%', left: '-40px', width: 240, height: 240, zIndex: 24, animationDuration: '7s', animationDelay: '1s' }}
-            >
-              <Image
-                src="/images/3d-lotus.png"
-                alt=""
-                fill
-                sizes="240px"
-                className="object-contain"
-                priority
-              />
-            </div>
-
-            {/* Key — lower center, over lower body */}
-            <div
-              className="absolute pointer-events-none animate-float"
-              style={{ bottom: '20%', left: '12%', width: 220, height: 180, zIndex: 23, animationDuration: '8s', animationDelay: '0.5s' }}
-            >
-              <Image
-                src="/images/3d-key.png"
                 alt=""
                 fill
                 sizes="220px"
@@ -184,13 +180,28 @@ export function Hero() {
               />
             </div>
 
-            {/* Hourglass — bottom right, over arm/chair */}
+            {/* Lotus — over lower torso (reduced by 30%, overlapping) */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ bottom: '15%', right: '-20px', width: 200, height: 240, zIndex: 26, animationDuration: '7.5s', animationDelay: '1.5s' }}
+              style={{ top: '42%', left: '-20px', width: 168, height: 168, zIndex: 12, animationDuration: '7s', animationDelay: '1s' }}
             >
               <Image
-                src="/images/3d-hourglass.png"
+                src="/images/3d-lotus.png"
+                alt=""
+                fill
+                sizes="168px"
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            {/* Key — near hand/lap area (overlapping) */}
+            <div
+              className="absolute pointer-events-none animate-float"
+              style={{ bottom: '18%', left: '8%', width: 200, height: 160, zIndex: 14, animationDuration: '8s', animationDelay: '0.5s' }}
+            >
+              <Image
+                src="/images/3d-key.png"
                 alt=""
                 fill
                 sizes="200px"
@@ -199,16 +210,31 @@ export function Hero() {
               />
             </div>
 
-            {/* Floating spheres — scattered */}
+            {/* Hourglass — near chair arm (overlapping, in front) */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ top: '20%', right: '18%', width: 80, height: 80, zIndex: 22, animationDuration: '6s', animationDelay: '0s' }}
+              style={{ bottom: '12%', right: '-30px', width: 220, height: 260, zIndex: 16, animationDuration: '7.5s', animationDelay: '1.5s' }}
+            >
+              <Image
+                src="/images/3d-hourglass.png"
+                alt=""
+                fill
+                sizes="220px"
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            {/* Small floating spheres — fill empty space */}
+            <div
+              className="absolute pointer-events-none animate-float"
+              style={{ top: '22%', left: '22%', width: 50, height: 50, zIndex: 13, animationDuration: '6s', animationDelay: '0s' }}
             >
               <Image
                 src="/images/3d-spheres.png"
                 alt=""
                 fill
-                sizes="80px"
+                sizes="50px"
                 className="object-contain"
                 priority
               />
@@ -216,13 +242,13 @@ export function Hero() {
 
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ bottom: '40%', left: '8%', width: 100, height: 100, zIndex: 22, animationDuration: '7.5s', animationDelay: '1s' }}
+              style={{ top: '35%', right: '15%', width: 40, height: 40, zIndex: 13, animationDuration: '7.5s', animationDelay: '1s' }}
             >
               <Image
                 src="/images/3d-spheres.png"
                 alt=""
                 fill
-                sizes="100px"
+                sizes="40px"
                 className="object-contain"
                 priority
               />
@@ -230,13 +256,41 @@ export function Hero() {
 
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ top: '60%', right: '12%', width: 60, height: 60, zIndex: 22, animationDuration: '8s', animationDelay: '0.5s' }}
+              style={{ bottom: '35%', left: '12%', width: 60, height: 60, zIndex: 11, animationDuration: '8s', animationDelay: '0.5s' }}
             >
               <Image
                 src="/images/3d-spheres.png"
                 alt=""
                 fill
                 sizes="60px"
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            <div
+              className="absolute pointer-events-none animate-float"
+              style={{ top: '55%', left: '28%', width: 35, height: 35, zIndex: 13, animationDuration: '7s', animationDelay: '1.5s' }}
+            >
+              <Image
+                src="/images/3d-spheres.png"
+                alt=""
+                fill
+                sizes="35px"
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            <div
+              className="absolute pointer-events-none animate-float"
+              style={{ bottom: '22%', right: '8%', width: 45, height: 45, zIndex: 13, animationDuration: '6.5s', animationDelay: '1.2s' }}
+            >
+              <Image
+                src="/images/3d-spheres.png"
+                alt=""
+                fill
+                sizes="45px"
                 className="object-contain"
                 priority
               />
