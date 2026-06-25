@@ -123,7 +123,7 @@ export function Hero() {
           */}
           <div
             className="relative hidden lg:flex"
-            style={{ width: '56%', marginRight: '-8%', alignSelf: 'stretch' }}
+            style={{ width: '56%', marginRight: '-8%', marginLeft: '-155px', alignSelf: 'stretch' }}
           >
             {/* Warm radial gradient + curved lines backdrop */}
             <div
@@ -445,7 +445,7 @@ export function Hero() {
       </div>
 
       {/* ─── STATS CARD — anchored to the bottom of the hero ── */}
-      <div className="relative z-30 w-full px-4 pb-10">
+      <div className="relative z-30 w-full px-4 pb-10" style={{ marginTop: '-216px' }}>
         <div className="mx-auto max-w-3xl">
           <div
             className="grid grid-cols-3 overflow-hidden rounded-3xl"
