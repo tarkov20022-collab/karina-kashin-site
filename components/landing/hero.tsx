@@ -163,42 +163,68 @@ export function Hero() {
               style={{ zIndex: 5 }}
             />
 
-            {/* ── 3D OBJECTS over portrait ── */}
+            {/* ── 3D OBJECTS: Depth layering for approved mockup ── */}
 
-            {/* Feather — near head (overlapping portrait, in front) */}
+            {/* Feather — above head, rotated clockwise, ~15% larger */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ top: '12%', left: '35%', width: 220, height: 220, zIndex: 15, animationDuration: '6s', animationDelay: '0s' }}
+              style={{ 
+                top: '5%', 
+                right: '22%', 
+                width: 254, 
+                height: 254, 
+                zIndex: 15, 
+                animationDuration: '6s', 
+                animationDelay: '0s',
+                transform: 'rotate(25deg)'
+              }}
             >
               <Image
                 src="/images/3d-feather.png"
                 alt=""
                 fill
-                sizes="220px"
+                sizes="254px"
                 className="object-contain"
                 priority
               />
             </div>
 
-            {/* Lotus — over lower torso (reduced by 30%, overlapping) */}
+            {/* Lotus — lower torso, ~15% smaller, overlapping jacket */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ top: '42%', left: '-20px', width: 168, height: 168, zIndex: 12, animationDuration: '7s', animationDelay: '1s' }}
+              style={{ 
+                top: '55%', 
+                left: '8%', 
+                width: 143, 
+                height: 143, 
+                zIndex: 12, 
+                animationDuration: '7s', 
+                animationDelay: '1s' 
+              }}
             >
               <Image
                 src="/images/3d-lotus.png"
                 alt=""
                 fill
-                sizes="168px"
+                sizes="143px"
                 className="object-contain"
                 priority
               />
             </div>
 
-            {/* Key — near hand/lap area (overlapping) */}
+            {/* Key — below lotus, rotated -20°, overlapping jacket */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ bottom: '18%', left: '8%', width: 200, height: 160, zIndex: 14, animationDuration: '8s', animationDelay: '0.5s' }}
+              style={{ 
+                top: '68%', 
+                left: '12%', 
+                width: 200, 
+                height: 160, 
+                zIndex: 14, 
+                animationDuration: '8s', 
+                animationDelay: '0.5s',
+                transform: 'rotate(-20deg)'
+              }}
             >
               <Image
                 src="/images/3d-key.png"
@@ -210,39 +236,111 @@ export function Hero() {
               />
             </div>
 
-            {/* Hourglass — near chair arm (overlapping, in front) */}
+            {/* Hourglass — lower-right near chair, rotated 12°, slightly larger */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ bottom: '12%', right: '-30px', width: 220, height: 260, zIndex: 16, animationDuration: '7.5s', animationDelay: '1.5s' }}
+              style={{ 
+                bottom: '8%', 
+                right: '-20px', 
+                width: 240, 
+                height: 280, 
+                zIndex: 16, 
+                animationDuration: '7.5s', 
+                animationDelay: '1.5s',
+                transform: 'rotate(12deg)'
+              }}
             >
               <Image
                 src="/images/3d-hourglass.png"
                 alt=""
                 fill
-                sizes="220px"
+                sizes="240px"
                 className="object-contain"
                 priority
               />
             </div>
 
-            {/* Small floating spheres — fill empty space */}
+            {/* Gold sphere — near feather, upper area */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ top: '22%', left: '22%', width: 50, height: 50, zIndex: 13, animationDuration: '6s', animationDelay: '0s' }}
+              style={{ 
+                top: '18%', 
+                right: '28%', 
+                width: 56, 
+                height: 56, 
+                zIndex: 17, 
+                animationDuration: '6.5s', 
+                animationDelay: '0.3s' 
+              }}
             >
               <Image
                 src="/images/3d-spheres.png"
                 alt=""
                 fill
-                sizes="50px"
+                sizes="56px"
                 className="object-contain"
                 priority
               />
             </div>
 
+            {/* Gold sphere — between headline and portrait area */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ top: '35%', right: '15%', width: 40, height: 40, zIndex: 13, animationDuration: '7.5s', animationDelay: '1s' }}
+              style={{ 
+                top: '28%', 
+                left: '48%', 
+                width: 72, 
+                height: 72, 
+                zIndex: 18, 
+                animationDuration: '7.2s', 
+                animationDelay: '0.6s' 
+              }}
+            >
+              <Image
+                src="/images/3d-spheres.png"
+                alt=""
+                fill
+                sizes="72px"
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            {/* Gold sphere — around lotus area, left side */}
+            <div
+              className="absolute pointer-events-none animate-float"
+              style={{ 
+                top: '50%', 
+                left: '-8%', 
+                width: 48, 
+                height: 48, 
+                zIndex: 11, 
+                animationDuration: '6.8s', 
+                animationDelay: '0.2s' 
+              }}
+            >
+              <Image
+                src="/images/3d-spheres.png"
+                alt=""
+                fill
+                sizes="48px"
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            {/* Gold sphere — around lotus area, right side */}
+            <div
+              className="absolute pointer-events-none animate-float"
+              style={{ 
+                top: '58%', 
+                right: '55%', 
+                width: 40, 
+                height: 40, 
+                zIndex: 13, 
+                animationDuration: '7.4s', 
+                animationDelay: '0.9s' 
+              }}
             >
               <Image
                 src="/images/3d-spheres.png"
@@ -254,43 +352,70 @@ export function Hero() {
               />
             </div>
 
+            {/* Gold sphere — near key */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ bottom: '35%', left: '12%', width: 60, height: 60, zIndex: 11, animationDuration: '8s', animationDelay: '0.5s' }}
+              style={{ 
+                top: '75%', 
+                left: '28%', 
+                width: 52, 
+                height: 52, 
+                zIndex: 15, 
+                animationDuration: '7.6s', 
+                animationDelay: '1.1s' 
+              }}
             >
               <Image
                 src="/images/3d-spheres.png"
                 alt=""
                 fill
-                sizes="60px"
+                sizes="52px"
                 className="object-contain"
                 priority
               />
             </div>
 
+            {/* Gold sphere — above hourglass */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ top: '55%', left: '28%', width: 35, height: 35, zIndex: 13, animationDuration: '7s', animationDelay: '1.5s' }}
+              style={{ 
+                bottom: '32%', 
+                right: '8%', 
+                width: 68, 
+                height: 68, 
+                zIndex: 17, 
+                animationDuration: '6.9s', 
+                animationDelay: '0.7s' 
+              }}
             >
               <Image
                 src="/images/3d-spheres.png"
                 alt=""
                 fill
-                sizes="35px"
+                sizes="68px"
                 className="object-contain"
                 priority
               />
             </div>
 
+            {/* Gold sphere — right edge, floating */}
             <div
               className="absolute pointer-events-none animate-float"
-              style={{ bottom: '22%', right: '8%', width: 45, height: 45, zIndex: 13, animationDuration: '6.5s', animationDelay: '1.2s' }}
+              style={{ 
+                top: '42%', 
+                right: '2%', 
+                width: 44, 
+                height: 44, 
+                zIndex: 12, 
+                animationDuration: '7.3s', 
+                animationDelay: '1.4s' 
+              }}
             >
               <Image
                 src="/images/3d-spheres.png"
                 alt=""
                 fill
-                sizes="45px"
+                sizes="44px"
                 className="object-contain"
                 priority
               />
