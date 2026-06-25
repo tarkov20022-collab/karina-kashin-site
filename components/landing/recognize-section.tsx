@@ -19,7 +19,7 @@ const points = [
 
 export function RecognizeSection() {
   return (
-    <section className="relative bg-background py-20 md:py-32 overflow-hidden">
+    <section className="relative bg-background py-7 overflow-hidden">
       {/* Decorative leaf top-left */}
       <div className="absolute -top-12 -left-12 w-32 h-32 opacity-20 pointer-events-none">
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -445,7 +445,7 @@ export function Hero() {
       </div>
 
       {/* ─── STATS CARD — anchored to the bottom of the hero ── */}
-      <div className="relative z-30 w-full px-4 pb-10" style={{ marginTop: '-216px' }}>
+      <div className="relative z-30 w-full px-4 pb-10" style={{ marginTop: '-169px' }}>
         <div className="mx-auto max-w-3xl">
           <div
             className="grid grid-cols-3 overflow-hidden rounded-3xl"
